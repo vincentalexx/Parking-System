@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RecordController;
+use App\Http\Controllers\UserController;
+use App\Models\Record;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +17,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/signup', [UserController::class, 'signup'])->name('user.signup');
+Route::post('/signup', [UserController::class, 'register'])->name('user.signup.store');
+
+Route::get('/', [UserController::class, 'login'])->name('user.login');
+Route::post('/login', [UserController::class, 'logon'])->name('user.login.store');
+
+Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
+
+Route::middleware('auth')->group(function(){
+    Route::get('/home', [HomeController::class, 'home'])->name('user.home');
+    Route::post('/masuk', [RecordController::class, 'masuk'])->name('parkir.masuk');
 });
