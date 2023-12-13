@@ -28,4 +28,6 @@ Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
 Route::middleware('auth')->group(function(){
     Route::get('/home', [HomeController::class, 'home'])->name('user.home');
     Route::post('/masuk', [RecordController::class, 'masuk'])->name('parkir.masuk');
+    Route::post('/keluar', [RecordController::class, 'keluar'])->name('parkir.keluar');
+
 });

@@ -13,6 +13,9 @@ class RecordSeeder extends Seeder
      */
     public function run(): void
     {
+
+        date_default_timezone_set('Asia/Jakarta');
+
         $orders = [
             [
                 'user_id' => '2',
@@ -39,6 +42,11 @@ class RecordSeeder extends Seeder
                 'user_id' => '3',
                 'nopol' => 'D 4567 HI',
                 'start_time' => '2021-10-26 21:00:00',
+            ],
+            [
+                'user_id' => '4',
+                'nopol' => 'D 5678 IJ',
+                'start_time' => '2023-12-13 11:05:00',
             ],
         ];
         foreach($orders as $order){
