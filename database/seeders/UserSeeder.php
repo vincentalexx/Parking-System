@@ -33,6 +33,12 @@ class UserSeeder extends Seeder
                 'password' => 'alex123',
                 'phone' => '0987654321',
             ],
+            [
+                'name' => 'udin',
+                'email' => 'udin@gmail.com',
+                'password' => 'udin123',
+                'phone' => '6516516496',
+            ],
         ];
         foreach($users as $user){
             User::create($user);

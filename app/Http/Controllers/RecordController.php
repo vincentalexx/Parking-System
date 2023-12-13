@@ -60,6 +60,7 @@ class RecordController extends Controller
         
         $record->end_time = $endDateTime;
         $record->price = $price;
+        $record->duration = $duration;
 
         $record->update();
 

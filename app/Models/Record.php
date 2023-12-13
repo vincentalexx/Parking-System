@@ -17,6 +17,7 @@ class Record extends Model
         'start_time',
         'end_time',
         'price',
+        'duration'
     ];
 
     protected $casts = [

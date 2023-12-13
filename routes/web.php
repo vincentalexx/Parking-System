@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RecordController;
 use App\Http\Controllers\UserController;
@@ -31,3 +32,8 @@ Route::middleware('auth')->group(function(){
     Route::post('/keluar', [RecordController::class, 'keluar'])->name('parkir.keluar');
 
 });
+
+Route::get('/admin', [AdminController::class, 'login_admin'])->name('admin.login');
+
+Route::get('/admin-home', [AdminController::class, 'home_admin'])->name('admin.home');
+Route::post('/admin-home', [AdminController::class, 'records_date'])->name('admin.orders.date');
