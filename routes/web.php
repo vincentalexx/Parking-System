@@ -35,5 +35,6 @@ Route::middleware('auth')->group(function(){
 
 Route::get('/admin', [AdminController::class, 'login_admin'])->name('admin.login');
 
-Route::get('/admin-home', [AdminController::class, 'home_admin'])->name('admin.home');
-Route::post('/admin-home', [AdminController::class, 'records_date'])->name('admin.orders.date');
+Route::get('/admin/home', [AdminController::class, 'home_admin'])->name('admin.home');
+Route::post('/admin/home', [AdminController::class, 'records_date'])->name('admin.records.date');
+Route::get('/admin/export/excel', [AdminController::class, 'export_excel'])->name('admin.export.excel');
