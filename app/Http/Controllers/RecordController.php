@@ -13,13 +13,20 @@ class RecordController extends Controller
         $request->validate([
             'nopolMasuk' => 'required',
         ]);
-        $exists = Record::where('end_time', NULL)->where('nopol', $request->nopolMasuk)->get();
+        $exists = Record::where('end_time', NULL)->where('nopol', $request->nopolMasuk)->first();
         
+        $userId = Auth::user()->id;
+        
+        if($exists != NULL){
+            if($exists->user_id != $userId){
+                return redirect()->back()->with('error', 'Nomor polisi bukan milik anda');
+            }
+        }
+
         // dd(count($exists), $exists->toArray());
-        if(count($exists) != 0){
+        if($exists != NULL){
             return redirect()->back()->with('error', 'Nomor polisi sudah parkir');
         }
-        $userId = Auth::user()->id;
         $startDateTime = Carbon::now('Asia/Jakarta');
         
         Record::create([
@@ -39,13 +46,19 @@ class RecordController extends Controller
         ]);
 
         $record = Record::where('end_time', NULL)->where('nopol', $request->nopolKeluar)->first();
+        
+        $userId = Auth::user()->id;
 
+        if($record != NULL){
+            if($record->user_id != $userId){
+                return redirect()->back()->with('errorKeluar', 'Nomor polisi bukan milik anda');
+            }
+        }
 
         if($record == NULL){
             return redirect()->back()->with('error', 'Nomor polisi tidak parkir');
         }
 
-        $userId = Auth::user()->id;
         $endDateTime = Carbon::now('Asia/Jakarta');
         $startDateTime = $record->start_time;
 

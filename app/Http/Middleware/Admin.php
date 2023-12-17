@@ -4,10 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class User
+class Admin
 {
     /**
      * Handle an incoming request.
@@ -16,10 +15,9 @@ class User
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::check()){
-            return $next($request);
+        if(!auth()->check() || !auth()->user()->role){
+            abort(403);
         }
-
-        return redirect()->route('user.login');
+        return $next($request);
     }
 }

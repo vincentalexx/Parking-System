@@ -43,6 +43,9 @@
                     <label for="nopol">Nomor Polisi</label>
                     <input type="text" name="nopolKeluar" placeholder="D 1234 EF">
                     <button>Masuk</button>
+                    @if(session()->has('errorKeluar'))
+                        <p style="color: red">{{ session()->get('errorKeluar') }}</p>
+                    @endif
                     @if(session()->has('message'))
                         <p style="color: green">{{ session()->get('message') }}</p>
                     @endif

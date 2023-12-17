@@ -7,7 +7,8 @@
     <title>Admin</title>
 </head>
 <body>
-    <form method="POST" action="">
+    <form method="POST" action="{{route('admin.login.store')}}">
+        @csrf
         <div>
             <div>
                 <p>LOGIN ADMIN</p>

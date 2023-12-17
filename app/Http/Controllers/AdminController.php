@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\ExportRecord;
 use App\Models\Record;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -14,20 +15,20 @@ class AdminController extends Controller
         return view('admin');
     }
 
-    // public function login_admin_store(Request $request){
-    //     $validator = Validator::make($request->all(), [
-    //         'email' => 'required|email|unique:users,email',
-    //         'password' => 'required',
-    //     ]);
+    public function login_admin_store(Request $request){
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required',
+        ]);
 
-    //     if(Auth::attempt($request->only('email', 'password'))){
-    //         $request->session()->regenerate();
-    //         return redirect()->route('user.home');
-    //     }
+        if(Auth::attempt($request->only('email', 'password'))){
+            $request->session()->regenerate();
+            return redirect()->route('admin.home');
+        }
 
-    //     $request->session()->put('authError', 'Invalid email or password!');
-    //     return redirect()->back();
-    // }
+        $request->session()->put('authError', 'Invalid email or password!');
+        return redirect()->back();
+    }
 
     public function home_admin(){
         $records = Record::all();
@@ -48,5 +49,10 @@ class AdminController extends Controller
 
     public function export_excel(){
         return Excel::download(new ExportRecord, "records.xlsx");
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('admin.login');
     }
 }
