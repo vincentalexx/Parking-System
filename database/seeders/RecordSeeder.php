@@ -134,6 +134,16 @@ class RecordSeeder extends Seeder
                 'nopol' => 'D 5678 IJ',
                 'start_time' => '2023-12-13 11:05:00',
             ],
+            [
+                'user_id' => '5',
+                'nopol' => 'B 6789 JK',
+                'start_time' => '2023-12-18 09:05:00',
+            ],
+            [
+                'user_id' => '5',
+                'nopol' => 'B 7890 KL',
+                'start_time' => '2023-12-18 11:05:00',
+            ],
         ];
         foreach($orders as $order){
             Record::create($order);

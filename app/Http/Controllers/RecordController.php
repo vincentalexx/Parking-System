@@ -13,8 +13,10 @@ class RecordController extends Controller
         $request->validate([
             'nopolMasuk' => 'required',
         ]);
-        $exists = Record::where('end_time', NULL)->where('nopol', $request->nopolMasuk)->first();
+        $exists = Record::where('end_time', NULL)->where('nopol', $request->nopolMasuk)->orderBy('start_time', 'DESC')->first();
         
+        // dd($exists);
+
         $userId = Auth::user()->id;
         
         if($exists != NULL){
@@ -35,7 +37,8 @@ class RecordController extends Controller
             'start_time' => $startDateTime,
         ]);
 
-        $record = Record::orderBy('start_time', 'DESC')->first();
+        $record = Record::orderBy('id', 'DESC')->first();
+
 
         return redirect()->route('user.home')->with('message_masuk', 'success')->with('record_masuk', $record->id)->with('nopol_masuk', $record->nopol)->with('time_masuk', $record->start_time);
     }
@@ -56,7 +59,7 @@ class RecordController extends Controller
         }
 
         if($record == NULL){
-            return redirect()->back()->with('error', 'Nomor polisi tidak parkir');
+            return redirect()->back()->with('errorKeluar', 'Nomor polisi tidak parkir');
         }
 
         $endDateTime = Carbon::now('Asia/Jakarta');
