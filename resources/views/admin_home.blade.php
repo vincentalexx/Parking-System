@@ -14,12 +14,12 @@
           width: 100%;
           border-collapse: collapse;
         }
-        </style>
+    </style>
 </head>
 <body>
     <form method="POST" action="{{route('admin.records.date')}}">
         @csrf
-        <div>
+        <div style="padding-inline: 30px">
             <p>Laporan Parkir</p>
             <a href="{{route('admin.logout')}}">Logout</a>
             <div style="display: flex">
@@ -35,6 +35,5 @@
             @include('records')
         </div>
     </form>
-
 </body>
 </html>

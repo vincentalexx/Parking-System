@@ -7,7 +7,7 @@
     <title>Parking System</title>
 </head>
 <body>
-    <div>
+    <div style="padding-inline: 20px">
         <div style="display: flex; align-items: center; gap: 10px ">
             <p>Parking System</p>
             <a href="{{route('user.logout')}} ">Log out</a>
