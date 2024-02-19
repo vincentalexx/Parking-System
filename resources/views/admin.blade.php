@@ -42,7 +42,7 @@
                 <label class="text-light w-50 fw-semibold" for="password">Password</label>
                 <input class="px-2 rounded border-0 ms-3" type="password" name="password">
             </div>
-            <p style="color: red">{{ Session::pull('authError') }}</p>
+            <p class="fw-bold" style="color: red">{{ Session::pull('authError') }}</p>
             <div class="d-flex flex-column mt-2">
                 <button class="login">Login</button>
             </div>

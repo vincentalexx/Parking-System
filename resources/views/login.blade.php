@@ -53,7 +53,7 @@
                 <input class="px-2 rounded border-0 ms-3" type="password" name="password">
             </div>
             <div class="d-flex flex-column mt-2">
-                <p style="color: red">{{ Session::pull('authError') }}</p>
+                <p class="fw-bold" style="color: red">{{ Session::pull('authError') }}</p>
                 <button class="login">Login</button>
                 <a class="signup text-decoration-none fw-bold text-center" href="{{route('user.signup')}}">Sign Up</a>
             </div>

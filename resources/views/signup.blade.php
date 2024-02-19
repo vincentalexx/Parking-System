@@ -49,31 +49,31 @@
                 <input class="px-2 rounded border-0 ms-3" type="text" name="name" placeholder="Your Name">
             </div>
             @error('name')
-                <div style="color: red">{{ $message }}</div>
+                <div class="fw-bold" style="color: red">{{ $message }}</div>
             @enderror
             <div class="d-flex mb-2 mt-2 justify-content-center">
                 <label class="text-light w-50 fw-semibold" for="email">Email</label>
                 <input class="px-2 rounded border-0 ms-3" type="text" name="email" placeholder="example@email.com">
             </div>
             @error('email')
-                <div style="color: red">{{ $message }}</div>
+                <div class="fw-bold" style="color: red">{{ $message }}</div>
             @enderror
             <div class="d-flex mb-2 mt-2 justify-content-center">
                 <label class="text-light w-50 fw-semibold" for="phone">Phone Number</label>
                 <input class="px-2 rounded border-0 ms-3" type="text" name="phone" placeholder="123456789">
             </div>
             @error('phone')
-                <div style="color: red">{{ $message }}</div>
+                <div class="fw-bold" style="color: red">{{ $message }}</div>
             @enderror
             <div class="d-flex mb-2 mt-2 justify-content-center">
                 <label class="text-light w-50 fw-semibold" for="password">Password</label>
                 <input class="px-2 rounded border-0 ms-3" type="password" name="password">
             </div>
             @error('password')
-                <div style="color: red">{{ $message }}</div>
+                <div class="fw-bold" style="color: red">{{ $message }}</div>
             @enderror
             <div class="d-flex flex-column mt-2">
-                <p style="color: red">{{ Session::pull('authError') }}</p>
+                <p class="fw-bold" style="color: red">{{ Session::pull('authError') }}</p>
                 <button class="signup">Sign up</button>
                 <a class="login text-decoration-none fw-bold text-center" href="{{route('user.login')}}">Log In</a>
             </div>
