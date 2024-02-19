@@ -43,7 +43,7 @@ class Record extends Model
         parent::boot();
         self::creating(function ($model){
             if(empty($model->{$model->getKeyName()})){
-                $model->id = IdGenerator::generate(['table' => $model->table, 'length' => 10,'prefix' =>date('ymd'), 'suffix' =>date('His')]);
+                $model->id = IdGenerator::generate(['table' => $model->table, 'length' => 10,'prefix' =>date('ymd')]);
             }
         });
     }

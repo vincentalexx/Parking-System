@@ -48,7 +48,7 @@ class AdminController extends Controller
     }
 
     public function export_excel(){
-        return Excel::download(new ExportRecord, "records.xlsx");
+        return Excel::download(new ExportRecord(), "records.xlsx");
     }
 
     public function logout(){

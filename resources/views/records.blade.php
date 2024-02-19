@@ -8,7 +8,7 @@
                 <th>Waktu Awal Parkir</th>
                 <th>Waktu Akhir Parkir</th>
                 <th>Durasi Parkir (/jam)</th>
-                <th>Biaya (Rp.)</td>
+                <th>Biaya (Rp.)</th>
             </tr>
         </thead>
         <tbody>

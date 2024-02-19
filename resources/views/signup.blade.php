@@ -79,5 +79,6 @@
             </div>
         </form>
     </div>
+    <p class="text-light mb-0 py-1 text-center w-100" style="bottom: 0; position: fixed; background-color: rgb(25, 25, 25)">@ 2023 Vincent Alexander Haris </p>
 </body>
 </html>
