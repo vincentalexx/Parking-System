@@ -40,34 +40,34 @@
     </style>
 </head>
 <body class="d-flex justify-content-center align-items-center">
-    <div class="container d-flex justify-content-center align-items-center" style="background-color: rgb(36, 36, 36); border-radius: 5%; width: 600px; height: 60%;">
+    <div class="container d-flex justify-content-center px-3 align-items-center w-75" style="background-color: rgb(36, 36, 36); border-radius: 5%; max-width: 600px; height: 60%;">
         <form method="POST" action="{{route('user.signup.store')}} " class="flex justify-content-center align-items-center">
         @csrf
             <p class="text-light text-center text-start fs-3 fw-bold">Sign Up</p>
-            <div class="d-flex mb-2 justify-content-center">
-                <label class="text-light w-50 fw-semibold" for="name">Name</label>
-                <input class="px-2 rounded border-0 ms-3" type="text" name="name" placeholder="Your Name">
+            <div class="d-flex flex-column flex-md-row mb-2 justify-content-center">
+                <label class="text-light" for="name" style="width: 130px">Name</label>
+                <input class="px-2 rounded border-0 w-100" type="text" name="name" placeholder="Your Name">
             </div>
             @error('name')
                 <div class="fw-bold" style="color: red">{{ $message }}</div>
             @enderror
-            <div class="d-flex mb-2 mt-2 justify-content-center">
-                <label class="text-light w-50 fw-semibold" for="email">Email</label>
-                <input class="px-2 rounded border-0 ms-3" type="text" name="email" placeholder="example@email.com">
+            <div class="d-flex flex-column flex-md-row mb-2 justify-content-center">
+                <label class="text-light" for="email" style="width: 130px">Email</label>
+                <input class="px-2 rounded border-0 w-100" type="text" name="email" placeholder="example@email.com">
             </div>
             @error('email')
                 <div class="fw-bold" style="color: red">{{ $message }}</div>
             @enderror
-            <div class="d-flex mb-2 mt-2 justify-content-center">
-                <label class="text-light w-50 fw-semibold" for="phone">Phone Number</label>
-                <input class="px-2 rounded border-0 ms-3" type="text" name="phone" placeholder="123456789">
+            <div class="d-flex flex-column flex-md-row mb-2 justify-content-center">
+                <label class="text-light" for="phone" style="width: 130px">Phone Number</label>
+                <input class="px-2 rounded border-0 w-100" type="text" name="phone" placeholder="123456789">
             </div>
             @error('phone')
                 <div class="fw-bold" style="color: red">{{ $message }}</div>
             @enderror
-            <div class="d-flex mb-2 mt-2 justify-content-center">
-                <label class="text-light w-50 fw-semibold" for="password">Password</label>
-                <input class="px-2 rounded border-0 ms-3" type="password" name="password">
+            <div class="d-flex flex-column flex-md-row mb-2 justify-content-center">
+                <label class="text-light" for="password" style="width: 130px">Password</label>
+                <input class="px-2 rounded border-0 w-100" type="password" name="password">
             </div>
             @error('password')
                 <div class="fw-bold" style="color: red">{{ $message }}</div>
@@ -79,6 +79,6 @@
             </div>
         </form>
     </div>
-    <p class="text-light mb-0 py-1 text-center w-100" style="bottom: 0; position: fixed; background-color: rgb(25, 25, 25)">@ 2023 Vincent Alexander Haris </p>
+    <p class="text-light mb-0 py-1 text-center w-100" style="bottom: 0; position: fixed; background-color: rgb(25, 25, 25); font-size: 10px">@ 2023 Vincent Alexander Haris </p>
 </body>
 </html>

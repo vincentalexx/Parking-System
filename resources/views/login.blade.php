@@ -40,17 +40,17 @@
     </style>
 </head>
 <body class="d-flex justify-content-center align-items-center">
-    <div class="container h-50 d-flex justify-content-center align-items-center" style="background-color: rgb(36, 36, 36); border-radius: 5%; width: 500px">
+    <div class="container h-50 d-flex justify-content-center px-3 align-items-center w-75" style="background-color: rgb(36, 36, 36); border-radius: 5%; max-width: 600px;">
         <form method="POST" action="{{route('user.login.store')}}" class="flex justify-content-center align-items-center">
         @csrf
             <p class="text-light text-center text-start fs-3 fw-bold">LOGIN</p>
-            <div class="d-flex mb-2 justify-content-center ">
-                <label class="text-light text-left w-25 fw-semibold" for="email">Email</label>
-                <input class="px-2 rounded border-0 ms-3" type="text" name="email" placeholder="example@email.com">
+            <div class="d-flex flex-column flex-md-row mb-2 justify-content-center ">
+                <label class="text-light text-left w-50 fw-semibold" for="email">Email</label>
+                <input class="px-2 rounded border-0 w-100" type="text" name="email" placeholder="example@email.com">
             </div>
-            <div class="d-flex justify-content-center">
-                <label class="text-light w-25 fw-semibold" for="password">Password</label>
-                <input class="px-2 rounded border-0 ms-3" type="password" name="password">
+            <div class="d-flex flex-column flex-md-row justify-content-center">
+                <label class="text-light w-50 fw-semibold" for="password">Password</label>
+                <input class="px-2 rounded border-0 w-100" type="password" name="password">
             </div>
             <div class="d-flex flex-column mt-2">
                 <p class="fw-bold" style="color: red">{{ Session::pull('authError') }}</p>
@@ -59,6 +59,6 @@
             </div>
         </form>
     </div>
-    <p class="text-light mb-0 py-1 text-center w-100" style="bottom: 0; position: fixed; background-color: rgb(25, 25, 25)">@ 2023 Vincent Alexander Haris </p>
+    <p class="text-light mb-0 py-1 text-center w-100" style="bottom: 0; position: fixed; background-color: rgb(25, 25, 25); font-size: 10px">@ 2023 Vincent Alexander Haris </p>
 </body>
 </html>

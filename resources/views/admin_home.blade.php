@@ -18,6 +18,7 @@
 
         body {
             height: 100vh;
+            width: 100%;
             background-color: black;
             font-family: 'Courier New', Courier, monospace
         }
@@ -51,34 +52,40 @@
     </style>
 </head>
 <body>
-    <form method="POST" action="{{route('admin.records.date')}}" style="height: 100vh">
+    <form method="POST" action="{{route('admin.records.date')}}" style="height: 100vh; width: 100%;">
         @csrf
-        <div class="w-100 py-2" style="top: 0; position: sticky; display: flex; justify-content: space-between; align-items: center; gap: 10px; background-color: rgb(68, 68, 68)">
-            <p style="width: 300px"></p>
-            <div class="mb-0 d-flex flex-column align-items-center" style="width: 300px">
-                <p class="text-light text-center text-start fs-3 fw-bold mb-0">ADMIN</p>
+        <div class="w-100 py-2 mb-5 px-2" style="display: flex; align-items: center; justify-content: space-between; gap: 10px; background-color: rgb(40, 40, 40)">
+            <div  style="width: 300px; padding-left: 20px;">
+                <p class="mb-0 d-md-none fw-bold " style="color: white">{{Auth::user()->name}}</p>
+            </div>
+            <div class="mb-0 d-flex flex-column align-items-center" style="width: 400px">
+                <p class="text-light text-center text-start fs-3 fw-bold mb-0">Parking System</p>
             </div>
             <div class="d-flex align-items-center" style="width: 300px; justify-content: end; padding-right: 20px; gap: 20px">
-                <p class="mb-0 text-light fw-bold">{{Auth::user()->name}}</p>
+                <p class="mb-0 text-light fw-bold d-none d-md-flex">{{Auth::user()->name}}</p>
                 <a class="text-decoration-none btn btn-danger fw-bold" href="{{route('admin.logout')}} ">Log out</a>
             </div>
         </div>
         <div class="container pb-1 mt-3">
-            <div class="d-flex align-items-center gap-5 p-4 rounded mb-3" style="height: 40px; align-items: center; background-color: rgb(68, 68, 68)">
-                <div class="d-flex align-items-center gap-2">
-                    <p class="mb-0 text-light fw-semibold">Tanggal Mulai</p>
-                    <input class="py-1 px-2 rounded border-0" type="date" name="start_date">
+            <div class="d-flex flex-column flex-md-row align-items-center gap-2 gap-md-5 p-4 rounded mb-3" style="align-items: center; background-color: rgb(68, 68, 68)">
+                <div class="d-flex flex-column flex-sm-row align-items-center gap-2 gap-md-5">
+                    <div class="d-flex flex-column align-items-center">
+                        <p class="mb-0 text-light fw-semibold">Tanggal Mulai</p>
+                        <input class="py-1 px-2 rounded border-0" type="date" name="start_date">
+                    </div>
+                    <div class="d-flex flex-column align-items-center ">
+                        <p class="mb-0 text-light fw-semibold">Tanggal Berakhir</p>
+                        <input class="py-1 px-2 rounded border-0" type="date" name="end_date">
+                    </div>
                 </div>
-                <div class="d-flex align-items-center gap-2">
-                    <p class="mb-0 text-light fw-semibold">Tanggal Berakhir</p>
-                    <input class="py-1 px-2 rounded border-0" type="date" name="end_date">
+                <div class="d-flex flex-sm-row flex-column align-items-center gap-2 gap-sm-5 justify-content-between justify-content-md-start">
+                    <button>Search</button>
+                    <a class="mb-0 text-decoration-none button" style="" href="{{route('admin.export.excel')}}">Export</a>
                 </div>
-                <button>Search</button>
-                <a class="mb-0 text-decoration-none button" style="" href="{{route('admin.export.excel')}}">Export Laporan</a>
             </div>
             @include('records', $records)
         </div>
-        <p class="text-light mb-0 py-1 text-center w-100" style="bottom: 0; position:inherit; background-color: rgb(25, 25, 25)">@ 2023 Vincent Alexander Haris </p>
+        <p class="text-light mb-0 py-1 text-center w-100" style="bottom: 0; position:inherit; background-color: rgb(25, 25, 25); font-size: 10px">@ 2023 Vincent Alexander Haris </p>
     </form>
 </body>
 </html>
