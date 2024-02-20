@@ -51,9 +51,9 @@
     </style>
 </head>
 <body>
-    <form method="POST" action="{{route('admin.records.date')}}">
+    <form method="POST" action="{{route('admin.records.date')}}" style="height: 100vh">
         @csrf
-        <div class="w-100 py-2 mb-4" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; background-color: rgb(68, 68, 68)">
+        <div class="w-100 py-2" style="top: 0; position: sticky; display: flex; justify-content: space-between; align-items: center; gap: 10px; background-color: rgb(68, 68, 68)">
             <p style="width: 300px"></p>
             <div class="mb-0 d-flex flex-column align-items-center" style="width: 300px">
                 <p class="text-light text-center text-start fs-3 fw-bold mb-0">ADMIN</p>
@@ -63,7 +63,7 @@
                 <a class="text-decoration-none btn btn-danger fw-bold" href="{{route('admin.logout')}} ">Log out</a>
             </div>
         </div>
-        <div class="container pb-1">
+        <div class="container pb-1 mt-3">
             <div class="d-flex align-items-center gap-5 p-4 rounded mb-3" style="height: 40px; align-items: center; background-color: rgb(68, 68, 68)">
                 <div class="d-flex align-items-center gap-2">
                     <p class="mb-0 text-light fw-semibold">Tanggal Mulai</p>
@@ -78,7 +78,7 @@
             </div>
             @include('records', $records)
         </div>
-        <p class="text-light mb-0 py-1 text-center w-100" style="bottom: 0; position: fixed; background-color: rgb(25, 25, 25)">@ 2023 Vincent Alexander Haris </p>
+        <p class="text-light mb-0 py-1 text-center w-100" style="bottom: 0; position:inherit; background-color: rgb(25, 25, 25)">@ 2023 Vincent Alexander Haris </p>
     </form>
 </body>
 </html>

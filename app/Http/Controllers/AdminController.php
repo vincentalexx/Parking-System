@@ -32,8 +32,9 @@ class AdminController extends Controller
 
     public function home_admin(){
         $records = Record::all();
+        $i = 1;
 
-        return view('admin_home', ['records' => $records]);
+        return view('admin_home', ['records' => $records], ['i' => $i]);
     }
 
     public function records_date(Request $request){
@@ -43,8 +44,9 @@ class AdminController extends Controller
         ]);
 
         $records = Record::whereBetween('start_time', [$request->start_date, $request->end_date])->get();
+        $i = 1;
 
-        return view('admin_home', ['records' => $records]);
+        return view('admin_home', ['records' => $records], ['i' => $i]);
     }
 
     public function export_excel(){

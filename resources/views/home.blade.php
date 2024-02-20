@@ -54,7 +54,7 @@
                             <p class="fw-bold" style="color: red">{{ session()->get('error') }}</p>
                         @endif
                         @if(session()->has('message_masuk'))
-                            <p class="fw-bold" style="color: green">{{ session()->get('message_masuk') }}</p>
+                            <p class="fw-bold" style="color: rgb(0, 255, 0)">{{ session()->get('message_masuk') }}</p>
                         @endif
                         @if(session()->has('record_masuk'))
                             <p class="text-light fw-semibold"> Nomor Polisi : {{ session()->get('nopol_masuk') }}</p>
@@ -76,14 +76,14 @@
                             <p class="fw-bold" style="color: red">{{ session()->get('errorKeluar') }}</p>
                         @endif
                         @if(session()->has('message'))
-                            <p class="fw-bold" style="color: green">{{ session()->get('message') }}</p>
+                            <p class="fw-bold" style="color: rgb(0, 255, 0)">{{ session()->get('message') }}</p>
                         @endif
                         @if(session()->has('record'))
                             <p class="text-light fw-semibold"> Nomor Polisi : {{ session()->get('nopol') }}</p>
                             <p class="text-light fw-semibold"> Kode Parkir : {{ session()->get('record') }}</p>
                             <p class="text-light fw-semibold"> Waktu Masuk : {{ session()->get('start_time') }}</p>
                             <p class="text-light fw-semibold"> Waktu Keluar : {{ session()->get('end_time') }}</p>
-                            <p class="text-light fw-semibold"> Durasi : {{ session()->get('duration') }} jam</p>
+                            <p class="text-light fw-semibold"> Durasi : {{ session()->get('duration') }}</p>
                             <p class="text-light fw-semibold"> Biaya Parkir : Rp. {{ session()->get('price') }}</p>
                         @endif
                     </div>

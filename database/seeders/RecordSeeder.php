@@ -23,7 +23,7 @@ class RecordSeeder extends Seeder
                 'start_time' => '2023-10-26 20:00:00',
                 'end_time' => '2023-10-26 22:00:00',
                 'price' => '6000',
-                'duration' => '2',
+                'duration' => '2 jam 0 menit 0 detik',
             ],
             [
                 'user_id' => '3',
@@ -31,7 +31,7 @@ class RecordSeeder extends Seeder
                 'start_time' => '2023-10-26 21:00:00',
                 'end_time' => '2023-10-26 22:00:00',
                 'price' => '3000',
-                'duration' => '1',
+                'duration' => '1 jam 0 menit 0 detik',
             ],
             [
                 'user_id' => '4',
@@ -39,7 +39,7 @@ class RecordSeeder extends Seeder
                 'start_time' => '2023-10-26 21:00:00',
                 'end_time' => '2023-10-26 23:00:00',
                 'price' => '6000',
-                'duration' => '2',
+                'duration' => '2 jam 0 menit 0 detik',
             ],
             [
                 'user_id' => '3',
@@ -47,7 +47,7 @@ class RecordSeeder extends Seeder
                 'start_time' => '2023-10-26 21:00:00',
                 'end_time' => '2023-10-26 23:45:00',
                 'price' => '9000',
-                'duration' => '3',
+                'duration' => '2 jam 45 menit 0 detik',
             ],
             [
                 'user_id' => '3',
@@ -55,7 +55,7 @@ class RecordSeeder extends Seeder
                 'start_time' => '2023-10-28 08:00:00',
                 'end_time' => '2023-10-28 10:00:00',
                 'price' => '6000',
-                'duration' => '2',
+                'duration' => '2 jam 0 menit 0 detik',
             ],
             [
                 'user_id' => '1',
@@ -63,7 +63,7 @@ class RecordSeeder extends Seeder
                 'start_time' => '2023-10-29 15:00:00',
                 'end_time' => '2023-10-29 16:00:00',
                 'price' => '3000',
-                'duration' => '1',
+                'duration' => '1 jam 0 menit 0 detik',
             ],
             [
                 'user_id' => '4',
@@ -71,7 +71,7 @@ class RecordSeeder extends Seeder
                 'start_time' => '2023-10-30 09:00:00',
                 'end_time' => '2023-10-30 11:00:00',
                 'price' => '6000',
-                'duration' => '2',
+                'duration' => '2 jam 0 menit 0 detik',
             ],
             [
                 'user_id' => '2',
@@ -79,7 +79,7 @@ class RecordSeeder extends Seeder
                 'start_time' => '2023-10-31 18:00:00',
                 'end_time' => '2023-10-31 19:00:00',
                 'price' => '3000',
-                'duration' => '1',
+                'duration' => '1 jam 0 menit 0 detik',
             ],
             [
                 'user_id' => '3',
@@ -87,7 +87,7 @@ class RecordSeeder extends Seeder
                 'start_time' => '2023-11-01 12:00:00',
                 'end_time' => '2023-11-01 13:00:00',
                 'price' => '3000',
-                'duration' => '1',
+                'duration' => '1 jam 0 menit 0 detik',
             ],
             [
                 'user_id' => '1',
@@ -95,7 +95,7 @@ class RecordSeeder extends Seeder
                 'start_time' => '2023-11-02 16:00:00',
                 'end_time' => '2023-11-02 18:00:00',
                 'price' => '6000',
-                'duration' => '2',
+                'duration' => '2 jam 0 menit 0 detik',
             ],
             [
                 'user_id' => '4',
@@ -103,7 +103,7 @@ class RecordSeeder extends Seeder
                 'start_time' => '2023-11-03 10:00:00',
                 'end_time' => '2023-11-03 12:00:00',
                 'price' => '6000',
-                'duration' => '2',
+                'duration' => '2 jam 0 menit 0 detik',
             ],
             [
                 'user_id' => '2',
@@ -111,7 +111,7 @@ class RecordSeeder extends Seeder
                 'start_time' => '2023-11-04 14:00:00',
                 'end_time' => '2023-11-04 17:00:00',
                 'price' => '9000',
-                'duration' => '3',
+                'duration' => '3 jam 0 menit 0 detik',
             ],
             [
                 'user_id' => '3',
@@ -119,7 +119,7 @@ class RecordSeeder extends Seeder
                 'start_time' => '2023-11-05 11:00:00',
                 'end_time' => '2023-11-05 12:00:00',
                 'price' => '3000',
-                'duration' => '1',
+                'duration' => '1 jam 0 menit 0 detik',
             ],
             [
                 'user_id' => '4',
@@ -127,7 +127,7 @@ class RecordSeeder extends Seeder
                 'start_time' => '2023-11-06 09:00:00',
                 'end_time' => '2023-11-06 13:00:00',
                 'price' => '12000',
-                'duration' => '4',
+                'duration' => '4 jam 0 menit 0 detik',
             ],                           
             [
                 'user_id' => '4',
@@ -143,6 +143,11 @@ class RecordSeeder extends Seeder
                 'user_id' => '5',
                 'nopol' => 'B 7890 KL',
                 'start_time' => '2023-12-18 11:05:00',
+            ],
+            [
+                'user_id' => '1',
+                'nopol' => 'B 7412 OP',
+                'start_time' => '2024-02-20 11:05:00',
             ],
         ];
         foreach($orders as $order){

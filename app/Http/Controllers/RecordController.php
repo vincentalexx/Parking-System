@@ -27,7 +27,8 @@ class RecordController extends Controller
 
         // dd(count($exists), $exists->toArray());
         if($exists != NULL){
-            return redirect()->back()->with('error', 'Nomor polisi sudah parkir');
+            $record = Record::where('end_time', NULL)->where('nopol', $request->nopolMasuk)->first();
+            return redirect()->back()->with('error', 'Nomor polisi sudah parkir')->with('record_masuk', $record->id)->with('nopol_masuk', $record->nopol)->with('time_masuk', $record->start_time);
         }
         $startDateTime = Carbon::now('Asia/Jakarta');
         
@@ -40,7 +41,7 @@ class RecordController extends Controller
         $record = Record::orderBy('id', 'DESC')->first();
 
 
-        return redirect()->route('user.home')->with('message_masuk', 'success')->with('record_masuk', $record->id)->with('nopol_masuk', $record->nopol)->with('time_masuk', $record->start_time);
+        return redirect()->route('user.home')->with('message_masuk', 'Success')->with('record_masuk', $record->id)->with('nopol_masuk', $record->nopol)->with('time_masuk', $record->start_time);
     }
 
     public function keluar(Request $request){
@@ -66,6 +67,7 @@ class RecordController extends Controller
         $startDateTime = $record->start_time;
 
         $time = $startDateTime->diffInMinutes($endDateTime);
+        $seconds = $startDateTime->diffInSeconds($endDateTime);
         // $duration = $time->h;
         if($time % 60 == 0){
             $duration = ($time/60);
@@ -74,12 +76,14 @@ class RecordController extends Controller
         }
         $price = $duration * 3000;
         
+        $duration = intdiv($seconds, 3600).' jam '.(int)(($seconds / 60) % 60).' menit '.($seconds % 60).' detik ';
+
         $record->end_time = $endDateTime;
         $record->price = $price;
         $record->duration = $duration;
 
         $record->update();
 
-        return redirect()->route('user.home')->with('message', 'success')->with('record', $record->id)->with('nopol', $record->nopol)->with('start_time', $record->start_time)->with('end_time', $record->end_time)->with('duration', $duration)->with('price', $record->price);
+        return redirect()->route('user.home')->with('message', 'Success')->with('record', $record->id)->with('nopol', $record->nopol)->with('start_time', $record->start_time)->with('end_time', $record->end_time)->with('duration', $duration)->with('price', $record->price);
     }
 }

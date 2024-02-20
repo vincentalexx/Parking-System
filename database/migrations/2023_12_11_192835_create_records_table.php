@@ -18,7 +18,7 @@ return new class extends Migration
             $table->datetime('start_time');
             $table->datetime('end_time')->nullable();
             $table->integer('price')->nullable();
-            $table->integer('duration')->nullable();
+            $table->string('duration')->nullable();
             $table->timestamps();
         });
     }
