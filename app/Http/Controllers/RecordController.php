@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Record;
+use App\Rules\LicensePlate;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +12,10 @@ class RecordController extends Controller
 {
     public function masuk(Request $request){
         $request->validate([
-            'nopolMasuk' => 'required',
+            'nopolMasuk' => ['required', new LicensePlate],
+        ],
+        [
+            'nopolMasuk.required' => 'Nomor polisi tidak boleh kosong'
         ]);
         $exists = Record::where('end_time', NULL)->where('nopol', $request->nopolMasuk)->orderBy('start_time', 'DESC')->first();
         
@@ -46,7 +50,10 @@ class RecordController extends Controller
 
     public function keluar(Request $request){
         $request->validate([
-            'nopolKeluar' => 'required',
+            'nopolKeluar' => ['required', new LicensePlate],
+        ],
+        [
+            'nopolKeluar.required' => 'Nomor polisi tidak boleh kosong'
         ]);
 
         $record = Record::where('end_time', NULL)->where('nopol', $request->nopolKeluar)->first();

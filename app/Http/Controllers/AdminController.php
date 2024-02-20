@@ -43,10 +43,9 @@ class AdminController extends Controller
             'end_date' => 'required',
         ]);
 
-        $records = Record::whereBetween('start_time', [$request->start_date, $request->end_date])->get();
-        $i = 1;
+        $records = Record::whereBetween('start_time', [$request->start_date.' 00:00:00', $request->end_date.' 23:59:59'])->get();
 
-        return view('admin_home', ['records' => $records], ['i' => $i]);
+        return view('admin_home', ['records' => $records]);
     }
 
     public function export_excel(){

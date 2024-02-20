@@ -53,6 +53,9 @@
                         <button>Masuk</button>
                     </div>
                     <div>
+                        @error('nopolMasuk')
+                            <div class="fw-bold" style="color: red">{{ $message }}</div>
+                        @enderror
                         @if(session()->has('error'))
                             <p class="fw-bold" style="color: red">{{ session()->get('error') }}</p>
                         @endif
@@ -77,6 +80,9 @@
                         <button>Keluar</button>
                     </div>
                     <div>
+                        @error('nopolKeluar')
+                            <div class="fw-bold" style="color: red">{{ $message }}</div>
+                        @enderror
                         @if(session()->has('errorKeluar'))
                             <p class="fw-bold" style="color: red">{{ session()->get('errorKeluar') }}</p>
                         @endif
