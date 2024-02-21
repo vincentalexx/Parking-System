@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\ExportRecord;
 use App\Models\Filter;
 use App\Models\Record;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -33,7 +34,6 @@ class AdminController extends Controller
 
     public function home_admin(){
         $records = Record::all();
-        $i = 1;
 
         return view('admin_home', ['records' => $records, 'start_date' => NULL, 'end_date' => NULL]);
     }
@@ -44,7 +44,7 @@ class AdminController extends Controller
             'end_date' => 'nullable',
         ]);
 
-        // dd($request->start_date);
+        // dump($request->start_date);
 
         if($request->start_date == NULL || $request->end_date == NULL){
             $records = Record::all();
@@ -53,20 +53,24 @@ class AdminController extends Controller
             $records = Record::whereBetween('start_time', [$request->start_date.' 00:00:00', $request->end_date.' 23:59:59'])->get();
         }
 
-        Filter::create([
-            'start' => $request->start_date,
-            'end' => $request->end_date
-        ]);
+        // Filter::create([
+        //     'start' => $request->start_date,
+        //     'end' => $request->end_date
+        // ]);
 
         // return redirect()->route('admin.home', ['records' => $records]);
-
-        // return view('admin_home', ['records' => $records, 'start_date' => $request->start_date, 'end_date' => $request->end_date]);
-        return view('admin_home', ['records' => $records]);
+        if($request->start_date && $request->end_date){
+            
+            return view('admin_home', ['records' => $records, 'start_date' => $request->start_date, 'end_date' => $request->end_date]);
+        }
+        else
+            return view('admin_home', ['records' => $records, 'start_date' => $records[0]->start_time, 'end_date' => Carbon::now()]);
     }
 
-    public function export_excel(){
-        $date = Filter::latest()->first();
-        return Excel::download(new ExportRecord($date), "records.xlsx");
+    public function export_excel($start_date, $end_date){
+        // dump($end_date);
+        // dump($start_date);
+        return Excel::download(new ExportRecord($start_date, $end_date), "records.xlsx");
     }
 
     public function logout(){

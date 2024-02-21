@@ -83,12 +83,14 @@
                     </div>
                 </form>
                 
-                {{-- <form action="{{route('admin.export.execl')}}" method="GET" class="d-flex flex-column-reverse align-items-center">
-                    @csrf --}}
-                    {{-- <button class="" style="width: 200px">Export</button>
+                {{-- <form action="{{route('admin.export.excel', ['start_date' => $start_date], ['end_date' => $end_date])}}" method="GET" class="d-flex flex-column-reverse align-items-center">
+                    @csrf
+                    <button class="" style="width: 200px">Export</button>
                 </form> --}}
-                <a class="mb-0 text-decoration-none button" style="" href="{{route('admin.export.excel')}}">Export</a>
-                @include('records', $records)
+                <div class="d-flex flex-column-reverse align-items-center">
+                    @include('records', $records)
+                    <a class="mb-0 text-decoration-none button text-center" style="width: 200px" href="{{route('admin.export.excel', ['start_date' => $start_date, 'end_date' => $end_date])}}">Export</a>
+                </div>
             </div>
         </div>
         {{-- <p class="text-light mb-0 py-1 text-center w-100" style="bottom: 0; position:inherit; background-color: rgb(25, 25, 25); font-size: 10px">@ 2023 Vincent Alexander Haris </p> --}}

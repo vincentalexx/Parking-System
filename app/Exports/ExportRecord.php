@@ -15,10 +15,10 @@ class ExportRecord implements FromView
     protected $start;
     protected $end;
 
-    public function __construct($date)
+    public function __construct($start_date, $end_date)
     {
-        $this->start = $date->start;
-        $this->end = $date->end;
+        $this->start = $start_date;
+        $this->end = $end_date;
     }
 
     public function view(): View
