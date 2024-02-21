@@ -38,6 +38,7 @@ Route::post('/admin', [AdminController::class, 'login_admin_store'])->name('admi
 Route::middleware('auth', 'admin')->group(function(){
     Route::get('/admin/home', [AdminController::class, 'home_admin'])->name('admin.home');
     Route::post('/admin/home', [AdminController::class, 'records_date'])->name('admin.records.date');
+    // Route::post('/admin/export/excel', [AdminController::class, 'excel'])->name('admin.export');
     Route::get('/admin/export/excel', [AdminController::class, 'export_excel'])->name('admin.export.excel');
     Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
 });

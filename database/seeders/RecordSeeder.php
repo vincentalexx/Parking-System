@@ -133,21 +133,33 @@ class RecordSeeder extends Seeder
                 'user_id' => '4',
                 'nopol' => 'D 5678 IJ',
                 'start_time' => '2023-12-13 11:05:00',
+                'end_time' => '2023-12-13 13:00:00',
+                'price' => '6000',
+                'duration' => '1 jam 55 menit 0 detik',
             ],
             [
                 'user_id' => '5',
                 'nopol' => 'B 6789 JK',
                 'start_time' => '2023-12-18 09:05:00',
+                'end_time' => '2023-12-18 13:06:00',
+                'price' => '15000',
+                'duration' => '4 jam 1 menit 0 detik',
             ],
             [
                 'user_id' => '5',
                 'nopol' => 'B 7890 KL',
                 'start_time' => '2023-12-18 11:05:00',
+                'end_time' => '2023-12-18 13:45:00',
+                'price' => '6000',
+                'duration' => '1 jam 40 menit 0 detik',
             ],
             [
                 'user_id' => '1',
                 'nopol' => 'B 7412 OP',
                 'start_time' => '2024-02-20 11:05:00',
+                'end_time' => '2024-02-20 13:40:00',
+                'price' => '9000',
+                'duration' => '2 jam 35 menit 0 detik',
             ],
         ];
         foreach($orders as $order){

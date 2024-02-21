@@ -52,8 +52,6 @@
     </style>
 </head>
 <body>
-    <form method="POST" action="{{route('admin.records.date')}}" style="height: 100vh; width: 100%;">
-        @csrf
         <div class="w-100 py-2 mb-5 px-2" style="display: flex; align-items: center; justify-content: space-between; gap: 10px; background-color: rgb(40, 40, 40)">
             <div  style="width: 300px; padding-left: 20px;">
                 <p class="mb-0 d-md-none fw-bold " style="color: white">{{Auth::user()->name}}</p>
@@ -67,25 +65,32 @@
             </div>
         </div>
         <div class="container pb-1 mt-3">
-            <div class="d-flex flex-column flex-md-row align-items-center gap-2 gap-md-5 p-4 rounded mb-3" style="align-items: center; background-color: rgb(68, 68, 68)">
-                <div class="d-flex flex-column flex-sm-row align-items-center gap-2 gap-md-5">
-                    <div class="d-flex flex-column align-items-center">
-                        <p class="mb-0 text-light fw-semibold">Tanggal Mulai</p>
-                        <input class="py-1 px-2 rounded border-0" type="date" name="start_date">
+            <div class="d-flex flex-column  align-items-center gap-2 p-4 rounded mb-3" style="align-items: center; background-color: rgb(68, 68, 68)">
+                <form method="POST" action="{{route('admin.records.date')}}">
+                    @csrf
+                    <div class="d-flex flex-column flex-sm-row align-items-center gap-2 gap-md-5 mb-2">
+                        <div class="d-flex flex-column align-items-center">
+                            <p class="mb-0 text-light fw-semibold">Tanggal Mulai</p>
+                            <input class="py-1 px-2 rounded border-0" type="date" name="start_date">
+                        </div>
+                        <div class="d-flex flex-column align-items-center ">
+                            <p class="mb-0 text-light fw-semibold">Tanggal Berakhir</p>
+                            <input class="py-1 px-2 rounded border-0" type="date" name="end_date">
+                        </div>
                     </div>
-                    <div class="d-flex flex-column align-items-center ">
-                        <p class="mb-0 text-light fw-semibold">Tanggal Berakhir</p>
-                        <input class="py-1 px-2 rounded border-0" type="date" name="end_date">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <button style="width: 200px">Search</button>
                     </div>
-                </div>
-                <div class="d-flex flex-sm-row flex-column align-items-center gap-2 gap-sm-5 justify-content-between justify-content-md-start">
-                    <button>Search</button>
-                    <a class="mb-0 text-decoration-none button" style="" href="{{route('admin.export.excel')}}">Export</a>
-                </div>
+                </form>
+                
+                {{-- <form action="{{route('admin.export.execl')}}" method="GET" class="d-flex flex-column-reverse align-items-center">
+                    @csrf --}}
+                    {{-- <button class="" style="width: 200px">Export</button>
+                </form> --}}
+                <a class="mb-0 text-decoration-none button" style="" href="{{route('admin.export.excel')}}">Export</a>
+                @include('records', $records)
             </div>
-            @include('records', $records)
         </div>
-        <p class="text-light mb-0 py-1 text-center w-100" style="bottom: 0; position:inherit; background-color: rgb(25, 25, 25); font-size: 10px">@ 2023 Vincent Alexander Haris </p>
-    </form>
+        {{-- <p class="text-light mb-0 py-1 text-center w-100" style="bottom: 0; position:inherit; background-color: rgb(25, 25, 25); font-size: 10px">@ 2023 Vincent Alexander Haris </p> --}}
 </body>
 </html>
