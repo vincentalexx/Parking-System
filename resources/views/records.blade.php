@@ -1,4 +1,4 @@
-<div class="p-3 mb-3 rounded" style=" background-color: rgb(68, 68, 68); font-size: 1vw">
+<div class="p-3 mb-3 rounded table-wrapper" style=" background-color: rgb(68, 68, 68);">
     {{-- <div class="mb-2">
         @if ($start_date)
             <input class="py-1 rounded border-0 bg-transparen text-light" style="width: 110px" type="text" name="start" disabled value="{{$start_date}}">
@@ -7,7 +7,7 @@
             <input class="py-1 rounded border-0 bg-transparen text-light" style="width: 150px" type="text" name="end" disabled value="{{$end_date}}">
         @endif
     </div> --}}
-    <table class="text-light" style="border: 1px;">
+    <table class="text-light block" style="border: 1px;">
         <thead style=" background-color: rgb(50, 50, 50)">
             <tr>
                 {{-- <th class="px-xl-3 text-center">No.</th> --}}

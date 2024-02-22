@@ -10,11 +10,6 @@
         table, td, th {
           border: 1px solid;
         }
-        
-        table {
-          width: 100%;
-          border-collapse: collapse;
-        }
 
         body {
             height: 100vh;
@@ -48,6 +43,19 @@
             background-color: white;
             color: black;
             transition: all 0.5s ease-out;
+        }
+        
+        table {
+            border-collapse: separate;
+            border-spacing: 0px;
+            border: 1px solid #ddd;
+            min-width: max-content;
+        }
+
+        .table-wrapper {
+            max-height: 100vw;
+            max-width: 100%;
+            overflow-y: auto;
         }
     </style>
 </head>
@@ -87,7 +95,7 @@
                     @csrf
                     <button class="" style="width: 200px">Export</button>
                 </form> --}}
-                <div class="d-flex flex-column-reverse align-items-center">
+                <div class="d-flex flex-column-reverse align-items-center" style="max-width: 100%">
                     @include('records', $records)
                     {{-- <?php dd($end_date); ?> --}}
                     <a class="mb-0 text-decoration-none button text-center" style="width: 200px" href="{{ route('admin.export.excel', ['start_date' => $start_date, 'end_date' => $end_date]) }}">Export</a>
