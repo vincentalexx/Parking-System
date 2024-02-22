@@ -34,8 +34,9 @@ class AdminController extends Controller
 
     public function home_admin(){
         $records = Record::all();
+        // dump($records[0]->start_time);
 
-        return view('admin_home', ['records' => $records, 'start_date' => NULL, 'end_date' => NULL]);
+        return view('admin_home', ['records' => $records, 'start_date' => $records[0]->start_time, 'end_date' => Carbon::now()]);
     }
 
     public function records_date(Request $request){
@@ -68,7 +69,7 @@ class AdminController extends Controller
     }
 
     public function export_excel($start_date, $end_date){
-        // dump($end_date);
+        // dd($end_date);
         // dump($start_date);
         return Excel::download(new ExportRecord($start_date, $end_date), "records.xlsx");
     }

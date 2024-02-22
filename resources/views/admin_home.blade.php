@@ -89,7 +89,8 @@
                 </form> --}}
                 <div class="d-flex flex-column-reverse align-items-center">
                     @include('records', $records)
-                    <a class="mb-0 text-decoration-none button text-center" style="width: 200px" href="{{route('admin.export.excel', ['start_date' => $start_date, 'end_date' => $end_date])}}">Export</a>
+                    {{-- <?php dd($end_date); ?> --}}
+                    <a class="mb-0 text-decoration-none button text-center" style="width: 200px" href="{{ route('admin.export.excel', ['start_date' => $start_date, 'end_date' => $end_date]) }}">Export</a>
                 </div>
             </div>
         </div>
