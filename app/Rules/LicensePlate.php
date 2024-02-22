@@ -15,8 +15,11 @@ class LicensePlate implements ValidationRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         $pattern = '/^[A-Z]{1,2}\s\d{1,4}\s[A-Z]{1,3}$/';
+        $pattern2 = '/^[A-Z]{1,2}\s\d{1,4}$/';
         if (preg_match($pattern, $value) === 0) {
-            $fail('Nomor polisi tidak valid.');
+            if (preg_match($pattern2, $value) === 0) {
+                $fail('Nomor polisi tidak valid.');
+            }
         }
     }
 }
