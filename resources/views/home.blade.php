@@ -30,14 +30,14 @@
 </head>
 <body>
     <div class="d-flex flex-column align-items-center h-100 mb-5">
-        <div class="w-100 py-2 mb-5 px-2" style="display: flex; align-items: center; justify-content: space-between; gap: 10px; background-color: rgb(40, 40, 40)">
-            <div  style="width: 300px; padding-left: 20px;">
+        <div class="w-100 py-2 px-2" style="position: sticky; top: 0; display: flex; align-items: center; justify-content: space-between; gap: 10px; background-color: rgb(40, 40, 40)">
+            <div  style="width: 200px; padding-left: 20px;">
                 <p class="mb-0 d-md-none fw-bold " style="color: white">{{Auth::user()->name}}</p>
             </div>
             <div class="mb-0 d-flex flex-column align-items-center" style="width: 400px">
                 <p class="text-light text-center text-start fs-3 fw-bold mb-0">Parking System</p>
             </div>
-            <div class="d-flex align-items-center" style="width: 300px; justify-content: end; padding-right: 20px; gap: 20px">
+            <div class="d-flex align-items-center" style="width: 200px; justify-content: end; padding-right: 20px; gap: 20px">
                 <p class="mb-0 text-light fw-bold d-none d-md-flex">{{Auth::user()->name}}</p>
                 <a class="text-decoration-none btn btn-danger fw-bold" href="{{route('user.logout')}} ">Log out</a>
             </div>
@@ -52,7 +52,7 @@
                         <input class="px-2 rounded border-0 w-100" type="text" name="nopolMasuk" placeholder="D 1234 EF">
                         <button>Masuk</button>
                     </div>
-                    <div>
+                    <div class="px-3">
                         @error('nopolMasuk')
                             <div class="fw-bold" style="color: red">{{ $message }}</div>
                         @enderror
@@ -79,7 +79,7 @@
                         <input class="px-2 rounded border-0 w-100" type="text" name="nopolKeluar" placeholder="D 1234 EF">
                         <button>Keluar</button>
                     </div>
-                    <div>
+                    <div class="px-3">
                         @error('nopolKeluar')
                             <div class="fw-bold" style="color: red">{{ $message }}</div>
                         @enderror
@@ -101,7 +101,7 @@
                 </form>
             </div>
         </div>
-        <p class="text-light mb-0 py-1 text-center w-100" style="bottom: 0; position: fixed; background-color: rgb(25, 25, 25); font-size: 10px">@ 2023 Vincent Alexander Haris </p>
+        {{-- <p class="text-light mb-0 py-1 text-center w-100" style="bottom: 0; position: fixed; background-color: rgb(25, 25, 25); font-size: 10px">@ 2023 Vincent Alexander Haris </p> --}}
     </div>
 </body>
 </html>
